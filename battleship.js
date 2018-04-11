@@ -8,9 +8,9 @@ var isSunk = false;
 const result = document.getElementById('stats')
 
 while (isSunk === false) {
-guess = Number(prompt("Ready, aim, fire! (enter a number from 0-6):"));
-if (guess < 0 || guess > 6 || typeof guess !== "number") {
-  alert("Please enter a valid cell number!"); }
+guess = Number((prompt("Ready, aim, fire! (enter a number from 0-6):"))); //guess = typeof string
+if (guess < 0 || guess > 6 || isNaN(guess)) {
+  alert("Please enter a valid value!"); }
   else {
     guesses += 1;
     if (guess == location1 || guess == location2 || guess == location3) {
