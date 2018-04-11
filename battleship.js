@@ -1,29 +1,30 @@
-var shiplocation1 = 3;
-var shiplocation2 = 4;
-var shiplocation3 = 5;
+var location1 = 3;
+var location2 = 4;
+var location3 = 5;
 var guess;
 var hits = 0;
 var guesses = 0;
 var isSunk = false;
+const result = document.getElementById('stats')
 
-
-while (isSunk == false) {
-  guess = prompt("Ready, aim, fire! (enter a number 0-6): ");
-  if (typeof guess !== "number" || guess < 0 || guess > 6) {
-    alert("Please enter a valid value.")  }
+while (isSunk === false) {
+guess = prompt("Ready, aim, fire! (enter a number from 0-6):");
+  if (guess < 0 || guess > 6) {
+  alert("Please enter a valid cell number!"); }
   else {
-    guesses +=1;  }
-  if (guess === shiplocation1 || guess === shiplocation2 || guess === shiplocation 3) {
-    hits +=1 ;
-    alert("Hit!");
-    if (hits == 3) {
-      isSunk = true;
-      alert("You sank the battleship!");  } }
-  else {
-    alert("Miss!");  }
-  }
+    guesses += 1;
+    if (guess == location1 || guess == location2 || guess == location3) {
+      alert("HIT!");
+      hits += 1; }
+    else {
+      alert("MISS") }
 
-var stats = "You took " + guesses + "guesses to sink the battleship." +
- "Your accuracy was " + (3/guesses);
+      if (hits == 3) {
+        isSunk = true;
+          alert("You sank my battleship!"); }
+        }
+}
 
- alert(stats);
+var stats = "You took " + guesses + " guesses to sink the battleship, " +  "which means your shooting accuracy was " + (3/guesses);
+
+result.innerHTML = stats;
