@@ -1,6 +1,6 @@
-var location1 = 3;
-var location2 = 4;
-var location3 = 5;
+var location1 = Math.floor(Math.random() * 6);
+var location2 = location1 + 1;
+var location3 = location2 + 1;
 var guess;
 var hits = 0;
 var guesses = 0;
@@ -8,8 +8,8 @@ var isSunk = false;
 const result = document.getElementById('stats')
 
 while (isSunk === false) {
-guess = prompt("Ready, aim, fire! (enter a number from 0-6):");
-  if (guess < 0 || guess > 6) {
+guess = Number(prompt("Ready, aim, fire! (enter a number from 0-6):"));
+if (guess < 0 || guess > 6 || typeof guess !== "number") {
   alert("Please enter a valid cell number!"); }
   else {
     guesses += 1;
@@ -25,6 +25,6 @@ guess = prompt("Ready, aim, fire! (enter a number from 0-6):");
         }
 }
 
-var stats = "You took " + guesses + " guesses to sink the battleship, " +  "which means your shooting accuracy was " + (3/guesses);
+var stats = "You took " + guesses + " guesses to sink the battleship, " +  "which means your shooting accuracy was " + ((3/guesses)*100)/100;
 
 result.innerHTML = stats;
